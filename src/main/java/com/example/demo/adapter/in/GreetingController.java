@@ -15,11 +15,6 @@ public class GreetingController {
     private final GreetingPort greetingPort;
 
     @PostMapping("")
-    public String sayHello(@RequestBody GreetingDTO greetingDTO) {
-        return greetingDTO.greeting() + " " + greetingDTO.name();
-    }
-
-    @PostMapping("")
     public void save(@RequestBody GreetingDTO greetingDTO) {
         GreetingCommand command = new GreetingCommand(greetingDTO.greeting(), greetingDTO.name());
         this.greetingPort.saveGreeting(command);
