@@ -1,4 +1,4 @@
-package com.example.demo.adapter.in;
+package com.example.demo.adapter.in.web;
 
 import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.in.GreetingPort;

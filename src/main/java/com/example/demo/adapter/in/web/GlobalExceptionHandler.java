@@ -1,4 +1,4 @@
-package com.example.demo.adapter.in;
+package com.example.demo.adapter.in.web;
 
 import com.example.demo.domain.exception.GreetingNotFoundException;
 import org.springframework.http.HttpStatus;
