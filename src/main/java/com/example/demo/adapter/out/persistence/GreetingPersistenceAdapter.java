@@ -34,6 +34,14 @@ public class GreetingPersistenceAdapter implements GreetingRepositoryPort {
 
     @Override
     public Optional<GreetingDTO> findByName(String name) {
-        return Optional.empty();
+        var response = this.repoAdapter.findByName(name);
+
+        if (response.isEmpty()) {
+            return Optional.empty();
+        }
+
+        var greeting = response.get();
+
+        return Optional.of(new GreetingDTO(greeting.getGreeting(), greeting.getName()));
     }
 }
