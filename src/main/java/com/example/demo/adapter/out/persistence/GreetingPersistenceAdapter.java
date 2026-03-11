@@ -3,6 +3,7 @@ package com.example.demo.adapter.out.persistence;
 import com.example.demo.adapter.in.GreetingDTO;
 import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.out.GreetingRepositoryPort;
+import com.example.demo.domain.model.Greeting;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +18,9 @@ public class GreetingPersistenceAdapter implements GreetingRepositoryPort {
     private final GreetingJpaRepository repoAdapter;
 
     @Override
-    public void save(GreetingCommand dto) {
-        var greeting = new GreetingJpaEntity(dto.greeting(), dto.name());
-        this.repoAdapter.save(greeting);
+    public void save(Greeting domain) {
+        var entity = new GreetingJpaEntity(domain.getGreeting(), domain.getName());
+        this.repoAdapter.save(entity);
     }
 
     @Override

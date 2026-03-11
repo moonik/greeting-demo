@@ -5,6 +5,7 @@ import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.in.GreetingPort;
 import com.example.demo.application.ports.out.GreetingRepositoryPort;
 import com.example.demo.domain.exception.GreetingNotFoundException;
+import com.example.demo.domain.model.Greeting;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class GreetingService implements GreetingPort {
 
     @Override
     public void saveGreeting(GreetingCommand command) {
-        this.greetingRepository.save(command);
+        this.greetingRepository.save(new Greeting(command.greeting(), command.name()));
     }
 
     @Override
