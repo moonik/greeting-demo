@@ -5,6 +5,8 @@ import com.example.demo.application.ports.out.GreetingRepositoryPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -33,15 +35,15 @@ public class GreetingPersistenceAdapter implements GreetingRepositoryPort {
     }
 
     @Override
-    public Optional<GreetingDTO> findByName(String name) {
+    public List<GreetingDTO> findByName(String name) {
         var response = this.repoAdapter.findByName(name);
 
         if (response.isEmpty()) {
-            return Optional.empty();
+            return Collections.emptyList();
         }
 
-        var greeting = response.get();
-
-        return Optional.of(new GreetingDTO(greeting.getGreeting(), greeting.getName()));
+        return response.stream()
+                .map(g -> new GreetingDTO(g.getGreeting(), g.getName()))
+                .toList();
     }
 }

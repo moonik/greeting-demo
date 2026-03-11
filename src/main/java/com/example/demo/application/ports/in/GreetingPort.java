@@ -2,6 +2,8 @@ package com.example.demo.application.ports.in;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public interface GreetingPort {
 
@@ -9,5 +11,5 @@ public interface GreetingPort {
 
     GreetingDTO getGreetingById(Integer id);
 
-    GreetingDTO getGreetingByName(String name);
+    List<GreetingDTO> getGreetingByName(String name);
 }

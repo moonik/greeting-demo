@@ -7,6 +7,9 @@ import com.example.demo.common.utils.GreetingNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class GreetingService implements GreetingPort {
@@ -24,7 +27,7 @@ public class GreetingService implements GreetingPort {
     }
 
     @Override
-    public GreetingDTO getGreetingByName(String name) {
-        return this.greetingRepository.findByName(name).orElseThrow(() -> new GreetingNotFoundException(name));
+    public List<GreetingDTO> getGreetingByName(String name) {
+        return this.greetingRepository.findByName(name);
     }
 }

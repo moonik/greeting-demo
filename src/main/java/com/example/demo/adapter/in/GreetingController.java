@@ -5,6 +5,8 @@ import com.example.demo.application.ports.in.GreetingPort;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/hello")
 @AllArgsConstructor
@@ -28,7 +30,7 @@ public class GreetingController {
     }
 
     @GetMapping("")
-    public GreetingDTO getGreetingByName(@RequestParam String name) {
+    public List<GreetingDTO> getGreetingByName(@RequestParam String name) {
         return this.greetingPort.getGreetingByName(name);
     }
 }
