@@ -1,3 +1,3 @@
-package com.example.demo.application.ports.in;
+package com.example.demo.adapter.in;
 
 public record GreetingDTO(String greeting, String name) {}

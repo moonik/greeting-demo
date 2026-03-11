@@ -1,13 +1,13 @@
 package com.example.demo.application.service;
 
-import com.example.demo.application.ports.in.GreetingDTO;
+import com.example.demo.adapter.in.GreetingDTO;
+import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.in.GreetingPort;
 import com.example.demo.application.ports.out.GreetingRepositoryPort;
-import com.example.demo.common.utils.GreetingNotFoundException;
+import com.example.demo.domain.exception.GreetingNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -17,8 +17,8 @@ public class GreetingService implements GreetingPort {
     private final GreetingRepositoryPort greetingRepository;
 
     @Override
-    public void saveGreeting(GreetingDTO dto) {
-        this.greetingRepository.save(dto);
+    public void saveGreeting(GreetingCommand command) {
+        this.greetingRepository.save(command);
     }
 
     @Override

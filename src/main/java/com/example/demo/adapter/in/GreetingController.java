@@ -1,6 +1,6 @@
 package com.example.demo.adapter.in;
 
-import com.example.demo.application.ports.in.GreetingDTO;
+import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.in.GreetingPort;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +19,10 @@ public class GreetingController {
         return greetingDTO.greeting() + " " + greetingDTO.name();
     }
 
-    @PostMapping("/save")
+    @PostMapping("")
     public void save(@RequestBody GreetingDTO greetingDTO) {
-        this.greetingPort.saveGreeting(greetingDTO);
+        GreetingCommand command = new GreetingCommand(greetingDTO.greeting(), greetingDTO.name());
+        this.greetingPort.saveGreeting(command);
     }
 
     @GetMapping("/{id}")

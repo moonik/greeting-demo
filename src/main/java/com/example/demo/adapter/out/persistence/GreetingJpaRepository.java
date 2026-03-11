@@ -4,10 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-public interface GreetingRepositoryAdapter extends JpaRepository<Greeting, Integer> {
+public interface GreetingJpaRepository extends JpaRepository<GreetingJpaEntity, Integer> {
 
-    List<Greeting> findByName(String name);
+    List<GreetingJpaEntity> findByName(String name);
 }

@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Table(name = "greetings")
-public class Greeting {
+public class GreetingJpaEntity {
 
     @Id @GeneratedValue
     private Integer id;
     private String greeting;
     private String name;
 
-    public Greeting(String greeting, String name) {
+    public GreetingJpaEntity(String greeting, String name) {
         this.greeting = greeting;
         this.name = name;
     }

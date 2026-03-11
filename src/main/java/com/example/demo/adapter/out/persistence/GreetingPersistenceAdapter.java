@@ -1,6 +1,7 @@
 package com.example.demo.adapter.out.persistence;
 
-import com.example.demo.application.ports.in.GreetingDTO;
+import com.example.demo.adapter.in.GreetingDTO;
+import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.out.GreetingRepositoryPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -13,36 +14,23 @@ import java.util.Optional;
 @AllArgsConstructor
 public class GreetingPersistenceAdapter implements GreetingRepositoryPort {
 
-    private final GreetingRepositoryAdapter repoAdapter;
+    private final GreetingJpaRepository repoAdapter;
 
     @Override
-    public void save(GreetingDTO dto) {
-        var greeting = new Greeting(dto.greeting(), dto.name());
+    public void save(GreetingCommand dto) {
+        var greeting = new GreetingJpaEntity(dto.greeting(), dto.name());
         this.repoAdapter.save(greeting);
     }
 
     @Override
     public Optional<GreetingDTO> findById(Integer id) {
-        var response = this.repoAdapter.findById(id);
-
-        if (response.isEmpty()) {
-            return Optional.empty();
-        }
-
-        var greeting = response.get();
-
-        return Optional.of(new GreetingDTO(greeting.getGreeting(), greeting.getName()));
+        return this.repoAdapter.findById(id)
+                .map(greeting -> new GreetingDTO(greeting.getGreeting(), greeting.getName()));
     }
 
     @Override
     public List<GreetingDTO> findByName(String name) {
-        var response = this.repoAdapter.findByName(name);
-
-        if (response.isEmpty()) {
-            return Collections.emptyList();
-        }
-
-        return response.stream()
+        return this.repoAdapter.findByName(name).stream()
                 .map(g -> new GreetingDTO(g.getGreeting(), g.getName()))
                 .toList();
     }

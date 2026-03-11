@@ -1,13 +1,12 @@
 package com.example.demo.application.ports.in;
 
-import org.springframework.stereotype.Component;
+import com.example.demo.adapter.in.GreetingDTO;
 
 import java.util.List;
 
-@Component
 public interface GreetingPort {
 
-    void saveGreeting(GreetingDTO greeting);
+    void saveGreeting(GreetingCommand greeting);
 
     GreetingDTO getGreetingById(Integer id);
 
