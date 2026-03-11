@@ -1,6 +1,5 @@
 package com.example.demo.application.service;
 
-import com.example.demo.adapter.in.GreetingDTO;
 import com.example.demo.application.ports.in.GreetingCommand;
 import com.example.demo.application.ports.in.GreetingPort;
 import com.example.demo.application.ports.out.GreetingRepositoryPort;

@@ -1,6 +1,5 @@
 package com.example.demo.adapter.out.persistence;
 
-import com.example.demo.adapter.in.GreetingDTO;
 import com.example.demo.application.ports.out.GreetingRepositoryPort;
 import com.example.demo.domain.model.Greeting;
 import lombok.AllArgsConstructor;
