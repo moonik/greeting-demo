@@ -23,12 +23,12 @@ public class GreetingService implements GreetingPort {
     }
 
     @Override
-    public GreetingDTO getGreetingById(Integer id) {
+    public Greeting getGreetingById(Integer id) {
         return this.greetingRepository.findById(id).orElseThrow(() -> new GreetingNotFoundException(id));
     }
 
     @Override
-    public List<GreetingDTO> getGreetingByName(String name) {
+    public List<Greeting> getGreetingByName(String name) {
         return this.greetingRepository.findByName(name);
     }
 }

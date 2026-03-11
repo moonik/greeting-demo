@@ -22,15 +22,15 @@ public class GreetingPersistenceAdapter implements GreetingRepositoryPort {
     }
 
     @Override
-    public Optional<GreetingDTO> findById(Integer id) {
+    public Optional<Greeting> findById(Integer id) {
         return this.repoAdapter.findById(id)
-                .map(greeting -> new GreetingDTO(greeting.getGreeting(), greeting.getName()));
+                .map(greeting -> new Greeting(greeting.getGreeting(), greeting.getName()));
     }
 
     @Override
-    public List<GreetingDTO> findByName(String name) {
+    public List<Greeting> findByName(String name) {
         return this.repoAdapter.findByName(name).stream()
-                .map(g -> new GreetingDTO(g.getGreeting(), g.getName()))
+                .map(g -> new Greeting(g.getGreeting(), g.getName()))
                 .toList();
     }
 }

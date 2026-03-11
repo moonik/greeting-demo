@@ -16,17 +16,18 @@ public class GreetingController {
 
     @PostMapping("")
     public void save(@RequestBody GreetingDTO greetingDTO) {
-        GreetingCommand command = new GreetingCommand(greetingDTO.greeting(), greetingDTO.name());
+        var command = new GreetingCommand(greetingDTO.greeting(), greetingDTO.name());
         this.greetingPort.saveGreeting(command);
     }
 
     @GetMapping("/{id}")
     public GreetingDTO getGreetingById(@PathVariable Integer id) {
-        return this.greetingPort.getGreetingById(id);
+        var greeting = this.greetingPort.getGreetingById(id);
+        return new GreetingDTO(greeting.greeting(), greeting.name());
     }
 
     @GetMapping("")
     public List<GreetingDTO> getGreetingByName(@RequestParam String name) {
-        return this.greetingPort.getGreetingByName(name);
+        return this.greetingPort.getGreetingByName(name).stream().map(g -> new GreetingDTO(g.greeting(), g.name())).toList();
     }
 }
