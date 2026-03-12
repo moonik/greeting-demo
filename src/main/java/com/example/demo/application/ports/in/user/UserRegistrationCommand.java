@@ -1,7 +1,7 @@
 package com.example.demo.application.ports.in.user;
 
-public record UserCommand(String email, String password) {
-    public UserCommand {
+public record UserRegistrationCommand(String email, String password) {
+    public UserRegistrationCommand {
         if (email == null || email.isBlank()) {
             throw new IllegalArgumentException("Email cannot be empty");
         }

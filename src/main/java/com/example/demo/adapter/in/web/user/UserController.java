@@ -1,6 +1,6 @@
 package com.example.demo.adapter.in.web.user;
 
-import com.example.demo.application.ports.in.user.UserCommand;
+import com.example.demo.application.ports.in.user.UserRegistrationCommand;
 import com.example.demo.application.ports.in.user.UserPort;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +17,7 @@ public class UserController {
 
     @PostMapping("")
     public void save(@RequestBody UserDTO userDTO) {
-        var command = new UserCommand(userDTO.email(), userDTO.password());
+        var command = new UserRegistrationCommand(userDTO.email(), userDTO.password());
         this.userPort.save(command);
     }
 }
