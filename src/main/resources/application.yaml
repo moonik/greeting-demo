@@ -1,4 +1,8 @@
 spring:
+  security:
+    jwt:
+      secret: "my-super-secret-key-that-is-at-least-32-characters-long!"
+      key-id: "my-secret-key-id"
   application:
     name: demo
   datasource:
@@ -10,7 +14,6 @@ spring:
       show-sql: true
       hibernate:
         ddl-auto: update
-
     h2:
       console:
         enabled: true

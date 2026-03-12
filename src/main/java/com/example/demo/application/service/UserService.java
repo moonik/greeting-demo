@@ -40,7 +40,7 @@ public class UserService implements UserPort {
             throw new UserNotFoundException(userLoginCommand.email());
         }
 
-        if (!passwordEncoder.matches(user.password(), user.password())) {
+        if (!passwordEncoder.matches(userLoginCommand.password(), user.password())) {
             throw new IllegalArgumentException("Wrong password");
         }
 
