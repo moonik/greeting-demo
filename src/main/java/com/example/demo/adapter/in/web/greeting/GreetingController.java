@@ -1,7 +1,7 @@
-package com.example.demo.adapter.in.web;
+package com.example.demo.adapter.in.web.greeting;
 
-import com.example.demo.application.ports.in.GreetingCommand;
-import com.example.demo.application.ports.in.GreetingPort;
+import com.example.demo.application.ports.in.greeting.GreetingCommand;
+import com.example.demo.application.ports.in.greeting.GreetingPort;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

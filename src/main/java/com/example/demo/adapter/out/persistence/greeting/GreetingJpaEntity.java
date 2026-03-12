@@ -1,4 +1,4 @@
-package com.example.demo.adapter.out.persistence;
+package com.example.demo.adapter.out.persistence.greeting;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,8 +1,8 @@
 package com.example.demo.application.service;
 
-import com.example.demo.application.ports.in.GreetingCommand;
-import com.example.demo.application.ports.in.GreetingPort;
-import com.example.demo.application.ports.out.GreetingRepositoryPort;
+import com.example.demo.application.ports.in.greeting.GreetingCommand;
+import com.example.demo.application.ports.in.greeting.GreetingPort;
+import com.example.demo.application.ports.out.greeting.GreetingRepositoryPort;
 import com.example.demo.domain.exception.GreetingNotFoundException;
 import com.example.demo.domain.model.Greeting;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,8 @@ public class GreetingService implements GreetingPort {
 
     @Override
     public void saveGreeting(GreetingCommand command) {
-        this.greetingRepository.save(new Greeting(command.greeting(), command.name()));
+        var model = new Greeting(command.greeting(), command.name());
+        this.greetingRepository.save(model);
     }
 
     @Override

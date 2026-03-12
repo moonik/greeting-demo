@@ -1,4 +1,4 @@
-package com.example.demo.application.ports.in;
+package com.example.demo.application.ports.in.greeting;
 
 public record GreetingCommand(String greeting, String name) {
     public GreetingCommand {

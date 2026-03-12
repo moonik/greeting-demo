@@ -1,6 +1,6 @@
-package com.example.demo.adapter.out.persistence;
+package com.example.demo.adapter.out.persistence.greeting;
 
-import com.example.demo.application.ports.out.GreetingRepositoryPort;
+import com.example.demo.application.ports.out.greeting.GreetingRepositoryPort;
 import com.example.demo.domain.model.Greeting;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;

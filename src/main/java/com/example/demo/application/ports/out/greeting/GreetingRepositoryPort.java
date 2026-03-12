@@ -1,4 +1,4 @@
-package com.example.demo.application.ports.out;
+package com.example.demo.application.ports.out.greeting;
 
 import com.example.demo.domain.model.Greeting;
 

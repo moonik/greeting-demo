@@ -1,4 +1,4 @@
-package com.example.demo.adapter.out.persistence;
+package com.example.demo.adapter.out.persistence.greeting;
 
 import com.example.demo.domain.model.Greeting;
 import org.mapstruct.Mapper;
