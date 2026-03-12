@@ -29,14 +29,20 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
-	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	runtimeOnly("com.h2database:h2")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
+
+	compileOnly("org.projectlombok:lombok")
+
+	annotationProcessor("org.projectlombok:lombok")
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
+
+	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
+
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	runtimeOnly("com.h2database:h2")
 }
 
 tasks.withType<Test> {

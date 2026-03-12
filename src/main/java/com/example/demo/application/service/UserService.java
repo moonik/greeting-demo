@@ -4,7 +4,7 @@ import com.example.demo.application.ports.in.user.UserCommand;
 import com.example.demo.application.ports.in.user.UserPort;
 import com.example.demo.application.ports.out.user.PasswordEncoderPort;
 import com.example.demo.application.ports.out.user.UserRepositoryPort;
-import com.example.demo.domain.exception.GreetingNotFoundException;
+import com.example.demo.domain.exception.UserNotFoundException;
 import com.example.demo.domain.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +25,6 @@ public class UserService implements UserPort {
 
     @Override
     public User findByEmail(String email) {
-        return this.userRepository.findByEmail(email).orElseThrow(() -> new GreetingNotFoundException(email));
+        return this.userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException(email));
     }
 }
