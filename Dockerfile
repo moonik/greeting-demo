@@ -1,4 +1,4 @@
-FROM gradle:9.4.0-jdk25 AS build
+FROM gradle:8.5-jdk21 AS build
 WORKDIR /app
 
 # Copy the build files first to leverage Docker cache
@@ -10,7 +10,7 @@ COPY src ./src
 RUN gradle clean build -x test
 
 # Stage 2: Create the runtime image
-FROM openjdk:25-ea-jre-slim
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 COPY --from=build /app/build/libs/*.jar app.jar
